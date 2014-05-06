@@ -2,12 +2,18 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
+gem 'bootstrap-sass', '2.3.2.0'
+gem 'sprockets', '2.11.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 gem 'rspec' ,'2.14.1' 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.0'
+gem 'rspec-rails', '~> 2.0'
+gem 'guard-rspec', '2.5.0'
+gem 'spork-rails', '4.0.0'
+gem 'guard-spork', '1.5.0'
+gem 'childprocess', '0.3.6'
 end
 gem 'capybara', '~> 2.2.1'
 #gem 'rspec', '3.0.0.beta2'
@@ -38,7 +44,10 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
